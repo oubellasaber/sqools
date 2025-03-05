@@ -1,0 +1,54 @@
+<div class="card">
+    <div class="card-header d-flex align-items-center justify-content-between flex-wrap pb-0">
+        <h4 class="mb-3">Exams &amp; Results</h4>
+    </div>
+    <div class="card-body">
+        <div class="accordions-items-seperate" id="accordionExample">
+            <% studentExamResults.semesters.forEach((semester, index) => { %>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button <%= index === 0 ? '' : 'collapsed' %>" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne<%= semester.semester %>" aria-expanded="<%= index === 0 ? 'true' : 'false' %>" aria-controls="collapseOne<%= semester.semester %>">
+                            <span class="avatar avatar-sm bg-success me-2"><i class="ti ti-checks"></i></span>
+                            Semestre <%= semester.semester %>
+                        </button>
+                    </h2>
+                    <div id="collapseOne<%= semester.semester %>" class="accordion-collapse collapse <%= index === 0 ? 'show' : '' %>" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>Subject</th>
+                                            <th>Max Marks</th>
+                                            <th>Min Marks</th>
+                                            <th>Marks Obtained</th>
+                                            <th class="text-end">Result</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% semester.subjects.forEach(subject => { 
+                                            const isPassed = subject.marks_obtained >= subject.min_marks;
+                                        %>
+                                            <tr>
+                                                <td><%= subject.name %></td>
+                                                <td><%= subject.max_marks %></td>
+                                                <td><%= subject.min_marks %></td>
+                                                <td><%= subject.marks_obtained %></td>
+                                                <td class="text-end">
+                                                    <span class="badge <%= isPassed ? 'badge-soft-success' : 'badge-soft-danger' %> d-inline-flex align-items-center">
+                                                        <i class="ti ti-circle-filled fs-5 me-1"></i>
+                                                        <%= isPassed ? 'Pass' : 'Fail' %>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        <% }); %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include ('../partials/head') %>
+
+  <body>
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <!-- Header -->
+      <%- include ('../partials/header') %>
+      <!-- /Header -->
+
+      <!-- Sidebar -->
+      <%- include ('../pages/admin/sidebar') %>
+      <!-- /Sidebar -->
+
+      <!-- Page Wrapper -->
+      <div class="page-wrapper">
+        <%- include('../pages/' + page_path) %>
+      </div>
+      <!-- /Page Wrapper -->
+    </div>
+    <!-- /Main Wrapper -->
+
+    <%- include ('../partials/script') %>
+  </body>
+</html>

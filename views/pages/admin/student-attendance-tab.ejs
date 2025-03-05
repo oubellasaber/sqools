@@ -1,0 +1,91 @@
+<!-- Student List Table -->
+<div class="card-body p-0 py-3">
+    <div class="custom-datatable-filter table-responsive">
+        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="dataTables_length" id="DataTables_Table_0_length">
+                        <label>Row Per Page
+                            <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-select form-select-sm" onchange="changeLimit(this.value)">
+                                <option value="5" <%= Number(limit) === 5 ? 'selected' : '' %>>5</option>
+                                <option value="10" <%= Number(limit) === 10 ? 'selected' : '' %>>10</option>
+                                <option value="15" <%= Number(limit) === 15 ? 'selected' : '' %>>15</option>
+                                <option value="20" <%= Number(limit) === 20 ? 'selected' : '' %>>20</option>
+                            </select> Entries
+                        </label>
+                    </div>                    
+                </div>
+            </div>
+            <div class="row dt-row">
+                <div class="col-sm-12 table-responsive">
+                    <table class="table datatable dataTable no-footer" id="DataTables_Table_0">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Modele</th>
+                                <th>Subject</th>
+                                <th>Date</th>
+                                <th>Justified</th>
+                                <th>Justification</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% student_attendance.forEach(att => { %>
+                                <tr class="odd">
+                                    <td><%= att.modele %></td>
+                                    <td><%= att.subject %></td>
+                                    <td><%= att.date %></td>
+                                    <td><%= att.justified %></td>
+                                    <td><%= att.justification === null ? "not justified" :  att.justification %></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-5"></div>
+                <div class="col-sm-12 col-md-7">
+                    <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                        <ul class="pagination">
+                            <li class="paginate_button page-item <%= currentPage === 1 ? 'disabled' : '' %>">
+                                <a
+                                    href="student-attendance?page=<%= currentPage - 1 %>&limit=<%= limit %>"
+                                    aria-controls="DataTables_Table_0"
+                                    role="link"
+                                    class="page-link"
+                                >Prev</a>
+                            </li>
+                            <% for (let i = 1; i <= totalPages; i++) { %>
+                                <li class="paginate_button page-item <%= i === currentPage ? 'active' : '' %>">
+                                    <a
+                                        href="student-attendance?page=<%= i %>&limit=<%= limit %>"
+                                        aria-controls="DataTables_Table_0"
+                                        role="link"
+                                        class="page-link"
+                                    ><%= i %></a>
+                                </li>
+                            <% } %>
+                            <li class="paginate_button page-item <%= currentPage === totalPages ? 'disabled' : '' %>">
+                                <a
+                                    href="student-attendance?page=<%= currentPage + 1 %>&limit=<%= limit %>"
+                                    aria-controls="DataTables_Table_0"
+                                    role="link"
+                                    class="page-link"
+                                >Next</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function changeLimit(limit) {
+        const url = new URL(window.location.href);
+        url.searchParams.set('limit', limit);
+        url.searchParams.set('page', 1); // Reset to first page when changing limit
+        window.location.href = url.toString();
+    }
+</script>

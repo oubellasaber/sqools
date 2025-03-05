@@ -1,0 +1,302 @@
+<div class="content">
+
+    <!-- Page Header -->
+    <div class="d-md-flex d-block align-items-center justify-content-between mb-3">
+        <div class="my-auto mb-2">
+            <h3 class="page-title mb-1">Admin Dashboard</h3>
+            <nav>
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">Dashboard</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Admin Dashboard</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="d-flex my-xl-auto right-content align-items-center flex-wrap">
+            <div class="mb-2">
+                <a href="add-student.html" class="btn btn-primary d-flex align-items-center me-3"><i
+                        class="ti ti-square-rounded-plus me-2"></i>Add New Student</a>
+            </div>
+        </div>
+    </div>
+    <!-- /Page Header -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Dashboard Content -->
+            <div class="card bg-dark">
+                <div class="overlay-img">
+                    <img src="../assets/img/bg/shape-04.png" alt="img" class="img-fluid shape-01">
+                    <img src="../assets/img/bg/shape-01.png" alt="img" class="img-fluid shape-02">
+                    <img src="../assets/img/bg/shape-02.png" alt="img" class="img-fluid shape-03">
+                    <img src="../assets/img/bg/shape-03.png" alt="img" class="img-fluid shape-04">
+                </div>
+                <div class="card-body">
+                    <div
+                        class="d-flex align-items-xl-center justify-content-xl-between flex-xl-row flex-column">
+                        <div class="mb-3 mb-xl-0">
+                            <div class="d-flex align-items-center flex-wrap mb-2">
+                                <h1 class="text-white me-2">Welcome Back, <%= user.prenom + ' ' + user.nom %></span></h1>
+                                <a href="../profile.html"
+                                    class="avatar avatar-sm img-rounded bg-gray-800 dark-hover"><i
+                                        class="ti ti-edit text-white"></i></a>
+                            </div>
+                            <p class="text-white">Have a Good day at work</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Dashboard Content -->
+
+        </div>
+    </div>
+
+    <div class="row">
+
+        <!-- Total Students -->
+        <div class="col-xxl-3 col-sm-6 d-flex">
+            <div class="card flex-fill animate-card border-0">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="avatar avatar-xl bg-danger-transparent me-2 p-1">
+                            <img src="../assets/img/icons/student.svg" alt="img">
+                        </div>
+                        <div class="overflow-hidden flex-fill">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <h2 class="counter"><%=admin_dashboard.total_students%></h2>
+                            </div>
+                            <p id="total-students">Total Students</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between border-top mt-3 pt-3">
+                        <p class="mb-0" id="active-students">Active : <span class="text-dark fw-semibold"><%=admin_dashboard.active_students%></span></p>
+                        <span class="text-light">|</span>
+                        <p id="inactive-students">Inactive : <span class="text-dark fw-semibold"><%=admin_dashboard.inactive_students%></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Total Students -->
+
+        <!-- Total Teachers -->
+        <div class="col-xxl-3 col-sm-6 d-flex">
+            <div class="card flex-fill animate-card border-0">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="avatar avatar-xl me-2 bg-secondary-transparent p-1">
+                            <img src="../assets/img/icons/teacher.svg" alt="img">
+                        </div>
+                        <div class="overflow-hidden flex-fill">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <h2 class="counter" id="total-teachers"><%=admin_dashboard.total_teachers%></h2>
+                            </div>
+                            <p>Total Teachers</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between border-top mt-3 pt-3">
+                        <p class="mb-0" id="active-teachers">Active : <span class="text-dark fw-semibold"><%=admin_dashboard.active_teachers%></span></p>
+                        <span class="text-light">|</span>
+                        <p id="inacative-teachers">Inactive : <span class="text-dark fw-semibold"><%=admin_dashboard.inactive_teachers%></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Total Teachers -->
+
+        <!-- Total Subjects -->
+        <!-- <div class="col-xxl-3 col-sm-6 d-flex">
+            <div class="card flex-fill animate-card border-0">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="avatar avatar-xl me-2 bg-success-transparent p-1">
+                            <img src="../assets/img/icons/subject.svg" alt="img">
+                        </div>
+                        <div class="overflow-hidden flex-fill">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <h2 class="counter">82</h2>
+                                <span class="badge bg-success">1.2%</span>
+                            </div>
+                            <p>Total Subjects</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between border-top mt-3 pt-3">
+                        <p class="mb-0">Active : <span class="text-dark fw-semibold">81</span></p>
+                        <span class="text-light">|</span>
+                        <p>Inactive : <span class="text-dark fw-semibold">01</span></p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- /Total Subjects -->
+
+    </div>
+
+    <div class="row">
+
+        <!-- Schedules -->
+        <!-- /Schedules -->
+
+        <!-- Attendance -->
+        <!-- <div class="col-xxl-4 col-xl-6 col-md-12 d-flex flex-column">
+
+            <div class="card">
+                <div class="card-header d-flex align-items-center justify-content-between">
+                    <h4 class="card-title">Attendance</h4>
+                    <div class="dropdown">
+                        <a href="javascript:void(0);" class="bg-white dropdown-toggle"
+                            data-bs-toggle="dropdown"><i class="ti ti-calendar-due me-1"></i>Today
+                        </a>
+                        <ul class="dropdown-menu mt-2 p-3">
+                            <li>
+                                <a href="javascript:void(0);" class="dropdown-item rounded-1">
+                                    This Week
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="dropdown-item rounded-1">
+                                    Last Week
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="dropdown-item rounded-1">
+                                    Last Week
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="list-tab mb-4">
+                        <ul class="nav">
+                            <li>
+                                <a href="#" class="active" data-bs-toggle="tab"
+                                    data-bs-target="#students">Students</a>
+                            </li>
+                            <li>
+                                <a href="#" data-bs-toggle="tab" data-bs-target="#teachers">Teachers</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane fade active show" id="students">
+                            <div class="row gx-3">
+                                <div class="col-sm-4">
+                                    <div class="card bg-light-300 shadow-none border-0">
+                                        <div class="card-body p-3 text-center">
+                                            <h5>28</h5>
+                                            <p class="fs-12">Emergency</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card bg-light-300 shadow-none border-0">
+                                        <div class="card-body p-3 text-center">
+                                            <h5>01</h5>
+                                            <p class="fs-12">Absent</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card bg-light-300 shadow-none border-0">
+                                        <div class="card-body p-3 text-center">
+                                            <h5>01</h5>
+                                            <p class="fs-12">Late</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div id="student-chart" class="mb-4"></div>
+                                <a href="student-attendance.html" class="btn btn-light"><i
+                                        class="ti ti-calendar-share me-1"></i>View All</a>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="teachers">
+                            <div class="row gx-3">
+                                <div class="col-sm-4">
+                                    <div class="card bg-light-300 shadow-none border-0">
+                                        <div class="card-body p-3 text-center">
+                                            <h5>30</h5>
+                                            <p class="fs-12">Emergency</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card bg-light-300 shadow-none border-0">
+                                        <div class="card-body p-3 text-center">
+                                            <h5>03</h5>
+                                            <p class="fs-12">Absent</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card bg-light-300 shadow-none border-0">
+                                        <div class="card-body p-3 text-center">
+                                            <h5>03</h5>
+                                            <p class="fs-12">Late</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div id="teacher-chart" class="mb-4"></div>
+                                <a href="teacher-attendance.html" class="btn btn-light"><i
+                                        class="ti ti-calendar-share me-1"></i>View All</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div> -->
+
+            <div class="row flex-fill">
+
+                <!-- Best Performer -->
+                <div class="col-sm-6 d-flex flex-column">
+                    <div class="bg-success-800 p-3 br-5 text-center flex-fill mb-4 pb-0  owl-height bg-01">
+                        <div class="owl-carousel student-slider h-100">
+                            <% admin_dashboard.best_performers_teachers.forEach((teacher, index) => { %>
+                                <div class="item h-100">
+                                    <div class="d-flex justify-content-between flex-column h-100">
+                                        <div>
+                                            <h5 class="mb-3 text-white">Best Performer</h5>
+                                            <h4 class="mb-1 text-white"><%= teacher.fullname %></h4>
+                                            <p class="text-light"><%= teacher.dep %></p>
+                                        </div>
+                                        <img src="../assets/img/performer/performer-0<%= index + 1 %>.png" alt="img">
+                                    </div>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Best Performer -->
+
+                <!-- Star Students -->
+                <div class="col-sm-6 d-flex flex-column">
+                    <div class="bg-info p-3 br-5 text-center flex-fill mb-4 pb-0 owl-height bg-02">
+                        <div class="owl-carousel teacher-slider h-100">
+                            <% admin_dashboard.best_performers_students.forEach((student, index) => { %>
+                                <div class="item h-100">
+                                    <div class="d-flex justify-content-between flex-column h-100">
+                                        <div>
+                                            <h5 class="mb-3 text-white">Star Students</h5>
+                                            <h4 class="mb-1 text-white"><%= student.fullname %></h4>
+                                            <p class="text-light"><%= student.filiere + ', S' + student.semestre %></p>
+                                        </div>
+                                        <img src="../assets/img/performer/student-performer-0<%= index + 1 %>.png" alt="img">
+                                    </div>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Star Students -->
+
+            </div>
+
+        </div> -->
+        <!-- /Attendance -->
+    </div>
+</div>
