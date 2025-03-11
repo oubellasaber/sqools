@@ -22,28 +22,22 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>id</th>
-                                <th>First name</th>
-                                <th>Last name</th>
-                                <th>Gender</th>
-                                <th>Departement</th>
-                                <th>E-mail</th>
-                                <th>Phone</th>
+                                <th>matiere</th>
+                                <th>modele</th>
+                                <th>filiere</th>
+                                <th>prof</th>
+                                <th>class room</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <% teachers.forEach(teacher => { %>
+                            <% subjects.forEach(subject => { %>
                                 <tr class="odd">
-                                    <td>
-                                        <a href="teacher-details" class="link-primary teacher-link" data-id="<%= teacher.id %>">
-                                            <%= teacher.id %>
-                                        </a>
-                                    </td>
-                                    <td><%= teacher.nom %></td>
-                                    <td><%= teacher.prenom %></td>
-                                    <td><%= teacher.gender %></td>
-                                    <td><%= teacher.departement %></td>
-                                    <td><%= teacher.email %></td>
-                                    <td><%= teacher.phone %></td>
+                                    <td><%= subject.id %></td>
+                                    <td><%= subject.matiere %></td>
+                                    <td><%= subject.modele %></td>
+                                    <td><%= subject.filiere %></td>
+                                    <td><%= subject.prof %></td>
+                                    <td><%= subject.class_room %></td>
                                 </tr>
                             <% }) %>
                         </tbody>
@@ -57,7 +51,7 @@
                         <ul class="pagination">
                             <li class="paginate_button page-item <%= currentPage === 1 ? 'disabled' : '' %>">
                                 <a
-                                    href="/admin/teacher-list?page=<%= currentPage - 1 %>&limit=<%= limit %>"
+                                    href="/admin/subject-list?page=<%= currentPage - 1 %>&limit=<%= limit %>"
                                     aria-controls="DataTables_Table_0"
                                     role="link"
                                     class="page-link"
@@ -66,7 +60,7 @@
                             <% for (let i = 1; i <= totalPages; i++) { %>
                                 <li class="paginate_button page-item <%= i === currentPage ? 'active' : '' %>">
                                     <a
-                                        href="/admin/teacher-list?page=<%= i %>&limit=<%= limit %>"
+                                        href="/admin/subject-list?page=<%= i %>&limit=<%= limit %>"
                                         aria-controls="DataTables_Table_0"
                                         role="link"
                                         class="page-link"
@@ -75,7 +69,7 @@
                             <% } %>
                             <li class="paginate_button page-item <%= currentPage === totalPages ? 'disabled' : '' %>">
                                 <a
-                                    href="/admin/teacher-list?page=<%= currentPage + 1 %>&limit=<%= limit %>"
+                                    href="/admin/subject-list?page=<%= currentPage + 1 %>&limit=<%= limit %>"
                                     aria-controls="DataTables_Table_0"
                                     role="link"
                                     class="page-link"
@@ -96,20 +90,4 @@
         url.searchParams.set('page', 1); // Reset to first page when changing limit
         window.location.href = url.toString();
     }
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('.teacher-link').forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault(); // Prevent default navigation
-
-            const studentId = this.getAttribute('data-id');
-            const baseUrl = this.getAttribute("href");
-            const newUrl = `${baseUrl}?teacherId=${studentId}`;
-
-            window.location.href = newUrl;
-        });
-    });
-});
 </script>

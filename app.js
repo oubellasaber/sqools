@@ -42,6 +42,8 @@ app.use(express.json()); // Parse JSON request bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded request bodies
 app.use(express.static('public')); // Serve static files from the "public" folder
 
+// TODO: use auth middlware here
+
 // View engine setup
 app.set('view engine', 'ejs'); // Use EJS as the templating engine
 app.set('views', 'views'); // Set the views directory

@@ -21,7 +21,7 @@
                     <table class="table datatable dataTable no-footer" id="DataTables_Table_0">
                         <thead class="thead-light">
                             <tr>
-                                <th>Admission No</th>
+                                <th>Student Id</th>
                                 <th>Name</th>
                                 <th>Filiere</th>
                                 <th>Semestre</th>
@@ -33,7 +33,11 @@
                         <tbody>
                             <% students.forEach(student => { %>
                                 <tr class="odd">
-                                    <td><a href="student-details" class="link-primary"><%= student.admission_no %></a></td>
+                                    <td>
+                                        <a href="student-details" class="link-primary student-link" data-id="<%= student.id %>">
+                                            <%= student.id %>
+                                        </a>
+                                    </td>
                                     <td><%= student.name %></td>
                                     <td><%= student.filiere %></td>
                                     <td><%= student.semestre %></td>
@@ -92,4 +96,21 @@
         url.searchParams.set('page', 1); // Reset to first page when changing limit
         window.location.href = url.toString();
     }
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.student-link').forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default navigation
+
+            const studentId = this.getAttribute('data-id');
+            const baseUrl = this.getAttribute("href");
+            const newUrl = `${baseUrl}?studentId=${studentId}`;
+
+            // Redirect to the new URL with the studentId
+            window.location.href = newUrl;
+        });
+    });
+});
 </script>

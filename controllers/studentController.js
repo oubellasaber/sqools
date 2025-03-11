@@ -8,10 +8,13 @@ class StudentController {
         const offset = (page - 1) * limit;
     
         try {
-            const user = userModel.findById(req.session.userId);
+            const user = await userModel.findById(req.session.userId);
             const students = await studentModel.getAll(limit, offset);
+            console.log(students.length)
             const total = await studentModel.getTotalStudentCount();
+            console.log(total);
             const totalPages = Math.ceil(total / limit);
+            console.log(totalPages);
 
             res.render('layouts/app-layout', {
                 title: 'Students list',
@@ -30,13 +33,14 @@ class StudentController {
 
     static async showStudentInfo(req, res) {
         try {
-            // if (!req.session.userId || !req.session.studentId) {
-            //     return res.status(404).send('Not Found'); // Respond with 404 if parameters are missing
-            // }
+            const studentId = req.query.studentId;
+            if (!studentId) {
+                return res.status(404).send('Not Found'); // Respond with 404 if parameters are missing
+            }
     
             const user = await userModel.findById(req.session.userId);
-            const studentInfo = await studentModel.getStudentInfo(req.session.studentId);
-            const studentDetails = await studentModel.getStudentDetails(req.session.studentId);
+            const studentInfo = await studentModel.getStudentInfo(studentId);
+            const studentDetails = await studentModel.getStudentDetails(studentId);
     
             if (!user || !studentInfo) {
                 return res.status(404).send('Not Found'); // Respond with 404 if user or student not found
@@ -59,13 +63,14 @@ class StudentController {
 
     static async showStudentTimeTable(req, res) {
         try {
-            // if (!req.session.userId || !req.session.studentId) {
-            //     return res.status(404).send('Not Found'); // Respond with 404 if parameters are missing
-            // }
-    
+            const studentId = req.query.studentId;
+            if (!studentId) {
+                return res.status(404).send('Not Found'); // Respond with 404 if parameters are missing
+            }
+
             const user = await userModel.findById(req.session.userId);
-            const studentInfo = await studentModel.getStudentInfo(req.session.studentId);
-            const studentTimeTable = await studentModel.getStudentTimeTable(req.session.studentId);
+            const studentInfo = await studentModel.getStudentInfo(studentId);
+            const studentTimeTable = await studentModel.getStudentTimeTable(studentId);
     
             if (!user || !studentInfo) {
                 return res.status(404).send('Not Found'); // Respond with 404 if user or student not found
@@ -87,15 +92,20 @@ class StudentController {
     }
 
     static async showStudentAttendance(req, res) {
+        const studentId = req.query.studentId;
+        if (!studentId) {
+            return res.status(404).send('Not Found'); // Respond with 404 if parameters are missing
+        }
+
         const page = parseInt(req.query.page) || 1;
         const limit = parseInt(req.query.limit) || 5;
         const offset = (page - 1) * limit;
     
         try {
             const user = userModel.findById(req.session.userId);
-            const student_attendance = await studentModel.getStudentAttendance(limit, offset);
+            const student_attendance = await studentModel.getStudentAttendance(studentId, limit, offset);
             const total = await studentModel.getTotalStudentAttendance();
-            const studentInfo = await studentModel.getStudentInfo(req.session.studentId);
+            const studentInfo = await studentModel.getStudentInfo(studentId);
             const totalPages = Math.ceil(total / limit);
 
             res.render('layouts/app-layout', {
@@ -116,10 +126,15 @@ class StudentController {
     }
 
     static async showStudentExamResults(req, res) {
+        const studentId = req.query.studentId;
+        if (!studentId) {
+            return res.status(404).send('Not Found'); // Respond with 404 if parameters are missing
+        }
+
         try {
             const user = userModel.findById(req.session.userId);
-            const studentInfo = await studentModel.getStudentInfo(req.session.studentId);
-            const studentExamResults = await studentModel.getStudentExamResult(req.session.studentId);
+            const studentInfo = await studentModel.getStudentInfo(studentId);
+            const studentExamResults = await studentModel.getStudentExamResult(studentId);
 
             res.render('layouts/app-layout', {
                 title: 'Student Exam Results',

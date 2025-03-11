@@ -32,13 +32,14 @@ class TeacherController {
 
     static async showTeacherInfo(req, res) {
         try {
-            // if (!req.session.userId || !req.session.studentId) {
-            //     return res.status(404).send('Not Found'); // Respond with 404 if parameters are missing
-            // }
+            const teacherId = req.query.teacherId;
+            if (!teacherId) {
+                return res.status(404).send('Not Found');
+            }
     
             const user = await userModel.findById(req.session.userId);
-            const teacherInfo = await teacherModel.getTeacherInfo(req.session.teacherId);
-            const teacherDetails = await teacherModel.getTeacherDetails(req.session.teacherId);
+            const teacherInfo = await teacherModel.getTeacherInfo(teacherId);
+            const teacherDetails = await teacherModel.getTeacherDetails(teacherId);
     
             if (!user || !teacherInfo) {
                 return res.status(404).send('Not Found'); // Respond with 404 if user or student not found
@@ -60,6 +61,33 @@ class TeacherController {
     }
 
     static async showTeacherTimeTable(req, res) {
+        try {
+            const teacherId = req.query.teacherId;
+            if (!teacherId) {
+                return res.status(404).send('Not Found');
+            }
+    
+            const user = await userModel.findById(req.session.userId);
+            const teacherInfo = await teacherModel.getTeacherInfo(teacherId);
+            const teacherTimeTable = await teacherModel.getTeacherTimeTable(teacherId);
+    
+            if (!user || !teacherInfo) {
+                return res.status(404).send('Not Found'); // Respond with 404 if user or student not found
+            }
+    
+            // If all is fine, render the page with the details
+            res.render('layouts/app-layout', {
+                title: 'Teacher Time table',
+                page_path: 'admin/teacher-details',
+                teacher_page_path: 'teacher-time-table-tab',
+                user,
+                teacherInfo,
+                teacherTimeTable
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).send('Internal Server Error');
+        }
     }
 }
 

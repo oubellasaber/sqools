@@ -27,7 +27,7 @@
     <div class="row" style="transform: none;">
 
         <!-- Teacher Information -->
-        <div class="col-xxl-3 col-xl-4 theiaStickySidebar" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+        <div class="col-xxl-3 col-xl-4 theiaStickySidebar teacher-link" data-id="<%= teacherInfo.id %>" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
 
             <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
                 <div class="card border-white">
@@ -50,7 +50,7 @@
                             <dt class="col-6 fw-medium text-dark mb-3">Gender</dt> 
                             <dd class="col-6 mb-3"><%= teacherInfo.gender %></dd> 
                             <dt class="col-6 fw-medium text-dark mb-3">Date Of Birth</dt> 
-                            <dd class="col-6 mb-3"><%= new Date(teacherInfo.date_naissance).toLocaleDateString() %></dd>
+                            <dd class="col-6 mb-3"><%= teacherInfo.date_naissance %></dd>
                         </dl>
                     </div>
                     <!-- /Basic Information -->
@@ -99,3 +99,25 @@
 
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const studentLink = document.querySelector(".teacher-link");
+    const studentId = studentLink?.getAttribute("data-id");
+
+    const tabs = document.querySelectorAll(".nav-link");
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default link navigation
+
+            const baseUrl = this.getAttribute("href");
+
+            const newUrl = `${baseUrl}?teacherId=${studentId}`;
+
+            window.location.href = newUrl;
+        });
+    });
+});
+
+</script>

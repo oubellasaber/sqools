@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-header d-flex align-items-center justify-content-between flex-wrap pb-0">
+        <h4 class="mb-3">Time Table</h4>
+    </div>
+    <div class="card-body">
+        <div class="d-flex flex-nowrap overflow-auto">
+            <% 
+            const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            daysOfWeek.forEach(day => { 
+            %>
+            <div class="d-flex flex-column me-4 flex-fill">
+                <div class="mb-3">
+                    <h6><%= day %></h6>
+                </div>
+                <% if (teacherTimeTable.timetable[day] && teacherTimeTable.timetable[day].length > 0) { %>
+                    <% teacherTimeTable.timetable[day].forEach(session => { %>
+                    <div class="rounded p-3 mb-4 border schedule-card">
+                        <div class="pb-3 border-bottom">
+                            <span class="text-danger badge bg-transparent-danger text-nowrap">
+                                <%= session.room %>
+                            </span>
+                        </div>
+                        <p class="text-dark d-block py-2 m-0">Class: <%= session.class %>, <%= session.section %></p>
+                        <p class="text-dark d-block pb-2 m-0">Subject: <%= session.subject %></p>
+                        <p class="text-dark d-block pb-2 m-0">Type: <%= session.type %></p>
+                        <p class="text-dark text-nowrap m-0">
+                            <i class="ti ti-clock me-1"></i><%= session.time %>
+                        </p>
+                    </div>
+                    <% }); %>
+                <% } else { %>
+                    <div class="rounded p-3 mb-4 border text-center bg-light">
+                        <div class="py-3">
+                            <h6 class="text-muted">No Classes Scheduled</h6>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+</div>
