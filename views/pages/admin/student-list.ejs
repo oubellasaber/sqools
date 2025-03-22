@@ -5,14 +5,14 @@
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <div class="dataTables_length" id="DataTables_Table_0_length">
-                        <label>Row Per Page
+                        <label>Entrées par page
                             <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-select form-select-sm" onchange="changeLimit(this.value)">
                                 <option value="5" <%= Number(limit) === 5 ? 'selected' : '' %>>5</option>
                                 <option value="10" <%= Number(limit) === 10 ? 'selected' : '' %>>10</option>
                                 <option value="15" <%= Number(limit) === 15 ? 'selected' : '' %>>15</option>
                                 <option value="20" <%= Number(limit) === 20 ? 'selected' : '' %>>20</option>
-                            </select> Entries
-                        </label>
+                            </select> Entrées
+                        </label>                        
                     </div>                    
                 </div>
             </div>
@@ -21,14 +21,14 @@
                     <table class="table datatable dataTable no-footer" id="DataTables_Table_0">
                         <thead class="thead-light">
                             <tr>
-                                <th>Student Id</th>
-                                <th>Name</th>
-                                <th>Filiere</th>
+                                <th>ID Étudiant</th>
+                                <th>Nom</th>
+                                <th>Filère</th>
                                 <th>Semestre</th>
                                 <th>Section</th>
-                                <th>Gender</th>
-                                <th>DOB</th>
-                            </tr>
+                                <th>Genre</th>
+                                <th>Date de naissance</th>
+                            </tr>                            
                         </thead>
                         <tbody>
                             <% students.forEach(student => { %>

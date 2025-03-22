@@ -5,6 +5,8 @@ const MySQLStore = require('express-mysql-session')(session); // Session store f
 const db = require('./config/db'); // Your MySQL connection pool
 const authRoutes = require('./routes/authRoutes');
 const adminRoutes = require('./routes/adminRoutes');
+const studentRoutes = require('./routes/studentRoutes');
+const unexpectedRoutes = require('./routes/unexpectedRoutes');
 
 const app = express();
 
@@ -51,7 +53,19 @@ app.set('views', 'views'); // Set the views directory
 // Routes
 app.use('/', authRoutes); // Use the auth routes
 app.use('/admin', adminRoutes); // Admin routes
+app.use('/student', studentRoutes); // Student routes
+app.use('/', unexpectedRoutes); // unexpected routes
+
+app.use((req, res, next) => {
+    res.status(404).render('error/404-error');
+  });
 
 // Start server
 const PORT = 5555;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// middleware
+// routes
+// template engine
+// MVC
+// auth, session management

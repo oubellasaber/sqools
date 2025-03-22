@@ -10,7 +10,7 @@ class TeacherController {
         const offset = (page - 1) * limit;
     
         try {
-            const user = userModel.findById(req.session.userId);
+            const user = await userModel.findById(req.session.userId);
             const teachers = await teacherModel.getAll(limit, offset);
             const total = await teacherModel.getTotalTeachersCount();
             const totalPages = Math.ceil(total / limit);

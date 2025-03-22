@@ -1,76 +1,78 @@
 <!-- Sidebar -->
 <div class="sidebar" id="sidebar">
     <div class="sidebar-inner slimscroll">
-        <div id="sidebar-menu" class="sidebar-menu">
-            <ul>
+      <div id="sidebar-menu" class="sidebar-menu">
+        <!-- Common top logo -->
+        <ul>
+          <li>
+            <a href="dashboard"
+              class="d-flex align-items-center border bg-white rounded p-2 mb-4">
+              <img src="../assets/img/icons/global-img.svg" class="avatar avatar-md img-fluid rounded"
+                alt="Profile">
+              <span class="text-dark ms-2 fw-normal">EST - Guelmim</span>
+            </a>
+          </li>
+        </ul>
+  
+        <% if (user.role === 0) { %>
+          <!-- Admin menu -->
+          <ul>
+            <li>
+              <h6 class="submenu-hdr"><span>Principal</span></h6>
+              <ul>
                 <li>
-                    <a href="javascript:void(0);"
-                        class="d-flex align-items-center border bg-white rounded p-2 mb-4">
-                        <img src="../assets/img/icons/global-img.svg" class="avatar avatar-md img-fluid rounded"
-                            alt="Profile">
-                        <span class="text-dark ms-2 fw-normal">EST - Guelmim</span>
-                    </a>
+                  <a href="dashboard" class="subdrop">
+                    <i class="ti ti-layout-dashboard"></i><span>Tableau de bord Admin</span>
+                  </a>
                 </li>
-            </ul>
-            <ul>
+              </ul>
+            </li>
+  
+            <li>
+              <h6 class="submenu-hdr"><span>Peuples</span></h6>
+              <ul>
                 <li>
-                    <h6 class="submenu-hdr"><span>Main</span></h6>
-                    <ul>
-                        <li class="submenu">
-                            <a href="dashboard" class="subdrop active">
-                                <i class="ti ti-layout-dashboard"></i><span>Admin Dashboard</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                
-                <li>
-                    <h6 class="submenu-hdr"><span>Peoples</span></h6>
-                    <ul>
-                        <li class="submenu">
-                            <a href="javascript:void(0);"><i class="ti ti-school"></i><span>Students</span><span
-                                    class="menu-arrow"></span></a>
-                            <ul>
-                                <li><a href="students-list">Student List</a></li>
-                                <li><a href="student-details">Student Details</a></li>
-                                <!-- <li><a href="../student-promotion.html">Student Promotion</a></li> -->
-                            </ul>
-                        </li>
-                        <!-- <li class="submenu">
-                            <a href="javascript:void(0);"><i
-                                    class="ti ti-user-bolt"></i><span>Parents</span><span
-                                    class="menu-arrow"></span></a>
-                            <ul>
-                                <li><a href="../parent-grid.html">All Parents</a></li>
-                                <li><a href="../parents.html">Parent List</a></li>
-                            </ul>
-                        </li> -->
-                        <li class="submenu">
-                            <a href="javascript:void(0);"><i class="ti ti-users"></i><span>Teachers</span><span
-                                    class="menu-arrow"></span></a>
-                            <ul>
-                                <li><a href="teacher-list">All Teachers</a></li>
-                                <li><a href="teacher-details">Teacher Details</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                  <a href="students-list"><i class="ti ti-school"></i><span>Liste des Étudiants</span></a>
                 </li>
                 <li>
-                    <h6 class="submenu-hdr"><span>Academic</span></h6>
-                    <ul>
-                        <li>
-                            <a href="class-list"><i class="ti ti-building"></i><span>All Classes</span></a>
-                        </li>
-                        <li>
-                            <a href="class-room-list"><i class="ti ti-building"></i><span>Class Room</span></a>
-                        </li>
-                        <li>
-                            <a href="subject-list"><i class="ti ti-book"></i><span>Subject</span></a>
-                        </li>
-                    </ul>
+                  <a href="teacher-list"><i class="ti ti-users"></i><span>Tous les Enseignants</span></a>
                 </li>
-            </ul>
-        </div>
+              </ul>
+            </li>
+  
+            <li>
+              <h6 class="submenu-hdr"><span>Académique</span></h6>
+              <ul>
+                <li>
+                  <a href="class-list"><i class="ti ti-building"></i><span>Les Classes</span></a>
+                </li>
+                <li>
+                  <a href="class-room-list"><i class="ti ti-building"></i><span>Salle de Classe</span></a>
+                </li>
+                <li>
+                  <a href="subject-list"><i class="ti ti-book"></i><span>Les matière</span></a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+  
+        <% } else { %>
+          <!-- Student menu -->
+          <ul>
+            <li>
+              <h6 class="submenu-hdr"><span>Principal</span></h6>
+              <ul>
+                <li>
+                  <a href="dashboard" class="subdrop">
+                    <i class="ti ti-layout-dashboard"></i><span>Tableau de bord Étudiant</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        <% } %>
+      </div>
     </div>
-</div>
-<!-- /Sidebar -->
+  </div>
+  <!-- /Sidebar -->
+  

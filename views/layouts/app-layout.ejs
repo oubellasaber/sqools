@@ -10,12 +10,16 @@
       <!-- /Header -->
 
       <!-- Sidebar -->
-      <%- include ('../pages/admin/sidebar') %>
+      <%- include ('../pages/admin/sidebar') %> 
       <!-- /Sidebar -->
 
       <!-- Page Wrapper -->
       <div class="page-wrapper">
-        <%- include('../pages/' + page_path) %>
+        <% if (user.role == 0) { %>
+          <%- include('../pages/' + page_path) %>
+        <% } else { %>
+          <%- include('../pages/admin/student-details') %>
+        <% } %>
       </div>
       <!-- /Page Wrapper -->
     </div>

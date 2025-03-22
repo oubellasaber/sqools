@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header d-flex align-items-center justify-content-between flex-wrap pb-0">
-        <h4 class="mb-3">Exams &amp; Results</h4>
+        <h4 class="mb-3">Examens & Résultats</h4>
     </div>
     <div class="card-body">
         <div class="accordions-items-seperate" id="accordionExample">
@@ -18,13 +18,13 @@
                                 <table class="table">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th>Subject</th>
-                                            <th>Max Marks</th>
-                                            <th>Min Marks</th>
-                                            <th>Marks Obtained</th>
-                                            <th class="text-end">Result</th>
+                                            <th>Matière</th>
+                                            <th>Note maximale</th>
+                                            <th>Note minimale</th>
+                                            <th>Note obtenue</th>
+                                            <th class="text-end">Résultat</th>
                                         </tr>
-                                    </thead>
+                                    </thead>                                    
                                     <tbody>
                                         <% semester.subjects.forEach(subject => { 
                                             const isPassed = subject.marks_obtained >= subject.min_marks;

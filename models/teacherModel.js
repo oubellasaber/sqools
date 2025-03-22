@@ -70,8 +70,8 @@ class Teacher {
                   u.nom,
                   u.prenom,
                   CASE gender
-                    WHEN 0 THEN 'Male'
-                    WHEN 1 THEN 'Female'
+                    WHEN 0 THEN 'Homme'
+                    WHEN 1 THEN 'Femme'
                     ELSE 'Unknown'
                   END AS gender,
                   DATE_FORMAT(date_naissance, '%d/%m/%Y') as date_naissance,

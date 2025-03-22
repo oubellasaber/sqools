@@ -21,10 +21,10 @@
                     <table class="table datatable dataTable no-footer" id="DataTables_Table_0">
                         <thead class="thead-light">
                             <tr>
-                                <th>Modele</th>
-                                <th>Subject</th>
+                                <th>Modèle</th>
+                                <th>Matière</th>
                                 <th>Date</th>
-                                <th>Justified</th>
+                                <th>justifié</th>
                                 <th>Justification</th>
                             </tr>
                         </thead>
@@ -35,7 +35,7 @@
                                     <td><%= att.subject %></td>
                                     <td><%= att.date %></td>
                                     <td><%= att.justified %></td>
-                                    <td><%= att.justification === null ? "not justified" :  att.justification %></td>
+                                    <td><%= att.justification === null ? "Pas justifié" :  att.justification %></td>
                                 </tr>
                             <% }) %>
                         </tbody>

@@ -97,31 +97,31 @@ class AdminDashboardModel {
             // `);
 
             const result = {
-                total_students: 364,
-                active_students: 3652,
-                inactive_students: 2,
-                total_teachers: 284,
-                active_teachers: 254,
-                inactive_teachers: 30,
+                total_students: 20,
+                active_students: 20,
+                inactive_students: 0,
+                total_teachers: 7,
+                active_teachers: 7,
+                inactive_teachers: 0,
                 best_performers_students: [
                     {
-                        fullname: "Saber OUBELLA",
+                        fullname: "BATTAH Sara",
                         filiere: "GI",
-                        semestre: 4
+                        semestre: 1
                     },
                     {
-                        fullname: "Ayoub Didi",
+                        fullname: " ARJDAL HECHAM",
                         filiere: "GI",
-                        semestre: 4
+                        semestre: 1
                     }
                 ],
                 best_performers_teachers: [
                     {
-                        fullname: "Asimi Younness",
+                        fullname: "Youssef Rachidi",
                         dep: "informatique"
                     },
                     {
-                        fullname: "Sabri",
+                        fullname: "Hamza Hamout",
                         dep: "informatique"
                     }
                 ]

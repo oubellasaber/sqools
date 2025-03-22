@@ -5,13 +5,13 @@
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <div class="dataTables_length" id="DataTables_Table_0_length">
-                        <label>Row Per Page
+                        <label>Entrées par page
                             <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-select form-select-sm" onchange="changeLimit(this.value)">
                                 <option value="5" <%= Number(limit) === 5 ? 'selected' : '' %>>5</option>
                                 <option value="10" <%= Number(limit) === 10 ? 'selected' : '' %>>10</option>
                                 <option value="15" <%= Number(limit) === 15 ? 'selected' : '' %>>15</option>
                                 <option value="20" <%= Number(limit) === 20 ? 'selected' : '' %>>20</option>
-                            </select> Entries
+                            </select> Entrées
                         </label>
                     </div>                    
                 </div>
@@ -22,12 +22,12 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>id</th>
-                                <th>matiere</th>
-                                <th>modele</th>
-                                <th>filiere</th>
-                                <th>prof</th>
-                                <th>class room</th>
-                            </tr>
+                                <th>Matière</th>
+                                <th>Modèle</th>
+                                <th>Filière</th>
+                                <th>Professeur</th>
+                                <th>Salle de classe</th>
+                            </tr>                            
                         </thead>
                         <tbody>
                             <% subjects.forEach(subject => { %>

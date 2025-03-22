@@ -3,22 +3,14 @@
     <!-- Page Header -->
     <div class="d-md-flex d-block align-items-center justify-content-between mb-3">
         <div class="my-auto mb-2">
-            <h3 class="page-title mb-1">Admin Dashboard</h3>
-            <nav>
-                <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item">
-                        <a href="index.html">Dashboard</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">Admin Dashboard</li>
-                </ol>
-            </nav>
+            <h3 class="page-title mb-1">Tableau de bord Admin</h3>
         </div>
-        <div class="d-flex my-xl-auto right-content align-items-center flex-wrap">
+        <!-- <div class="d-flex my-xl-auto right-content align-items-center flex-wrap">
             <div class="mb-2">
                 <a href="add-student.html" class="btn btn-primary d-flex align-items-center me-3"><i
                         class="ti ti-square-rounded-plus me-2"></i>Add New Student</a>
             </div>
-        </div>
+        </div> -->
     </div>
     <!-- /Page Header -->
 
@@ -37,12 +29,9 @@
                         class="d-flex align-items-xl-center justify-content-xl-between flex-xl-row flex-column">
                         <div class="mb-3 mb-xl-0">
                             <div class="d-flex align-items-center flex-wrap mb-2">
-                                <h1 class="text-white me-2">Welcome Back, <%= user.prenom + ' ' + user.nom %></span></h1>
-                                <a href="../profile.html"
-                                    class="avatar avatar-sm img-rounded bg-gray-800 dark-hover"><i
-                                        class="ti ti-edit text-white"></i></a>
+                                <h1 class="text-white me-2">Bienvenue, <%= user.prenom + ' ' + user.nom %></span></h1>
                             </div>
-                            <p class="text-white">Have a Good day at work</p>
+                            <p class="text-white">Excellente journée à vous.</p>
                         </div>
                     </div>
                 </div>
@@ -66,13 +55,13 @@
                             <div class="d-flex align-items-center justify-content-between">
                                 <h2 class="counter"><%=admin_dashboard.total_students%></h2>
                             </div>
-                            <p id="total-students">Total Students</p>
+                            <p id="total-students">Total Étudiants</p>
                         </div>
                     </div>
                     <div class="d-flex align-items-center justify-content-between border-top mt-3 pt-3">
-                        <p class="mb-0" id="active-students">Active : <span class="text-dark fw-semibold"><%=admin_dashboard.active_students%></span></p>
+                        <p class="mb-0" id="active-students">Actif : <span class="text-dark fw-semibold"><%=admin_dashboard.active_students%></span></p>
                         <span class="text-light">|</span>
-                        <p id="inactive-students">Inactive : <span class="text-dark fw-semibold"><%=admin_dashboard.inactive_students%></span></p>
+                        <p id="inactive-students">Inactif : <span class="text-dark fw-semibold"><%=admin_dashboard.inactive_students%></span></p>
                     </div>
                 </div>
             </div>
@@ -91,13 +80,13 @@
                             <div class="d-flex align-items-center justify-content-between">
                                 <h2 class="counter" id="total-teachers"><%=admin_dashboard.total_teachers%></h2>
                             </div>
-                            <p>Total Teachers</p>
+                            <p>Total Enseignants</p>
                         </div>
                     </div>
                     <div class="d-flex align-items-center justify-content-between border-top mt-3 pt-3">
-                        <p class="mb-0" id="active-teachers">Active : <span class="text-dark fw-semibold"><%=admin_dashboard.active_teachers%></span></p>
+                        <p class="mb-0" id="active-teachers">Actif : <span class="text-dark fw-semibold"><%=admin_dashboard.active_teachers%></span></p>
                         <span class="text-light">|</span>
-                        <p id="inacative-teachers">Inactive : <span class="text-dark fw-semibold"><%=admin_dashboard.inactive_teachers%></span></p>
+                        <p id="inacative-teachers">Inactif : <span class="text-dark fw-semibold"><%=admin_dashboard.inactive_teachers%></span></p>
                     </div>
                 </div>
             </div>
@@ -260,11 +249,11 @@
                                 <div class="item h-100">
                                     <div class="d-flex justify-content-between flex-column h-100">
                                         <div>
-                                            <h5 class="mb-3 text-white">Best Performer</h5>
+                                            <h5 class="mb-3 text-white">Meilleur Performer</h5>
                                             <h4 class="mb-1 text-white"><%= teacher.fullname %></h4>
                                             <p class="text-light"><%= teacher.dep %></p>
                                         </div>
-                                        <img src="../assets/img/performer/performer-0<%= index + 1 %>.png" alt="img">
+                                        <img src="../assets/img/performer/performer-02.png" alt="img">
                                     </div>
                                 </div>
                             <% }) %>
@@ -281,7 +270,7 @@
                                 <div class="item h-100">
                                     <div class="d-flex justify-content-between flex-column h-100">
                                         <div>
-                                            <h5 class="mb-3 text-white">Star Students</h5>
+                                            <h5 class="mb-3 text-white">Meilleur Étudiants</h5>
                                             <h4 class="mb-1 text-white"><%= student.fullname %></h4>
                                             <p class="text-light"><%= student.filiere + ', S' + student.semestre %></p>
                                         </div>
@@ -296,7 +285,7 @@
 
             </div>
 
-        </div> -->
+        </div>
         <!-- /Attendance -->
     </div>
 </div>

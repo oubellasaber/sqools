@@ -1,32 +1,21 @@
 <div class="content" style="transform: none;">
     <div class="row">
 
-        <!-- Page Header -->
+        <!-- Entête de page -->
         <div class="col-md-12">
             <div class="d-md-flex d-block align-items-center justify-content-between mb-3">
                 <div class="my-auto mb-2">
-                    <h3 class="page-title mb-1">Teacher Details</h3>
-                    <nav>
-                        <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item">
-                                <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="breadcrumb-item">
-                                <a href="teachers.html">Teacher</a>
-                            </li>
-                            <li class="breadcrumb-item active" aria-current="page">Teacher Details</li>
-                        </ol>
-                    </nav>
+                    <h3 class="page-title mb-1">Détails du professeur</h3>
                 </div>
             </div>
         </div>
-        <!-- /Page Header -->
+        <!-- /Entête de page -->
 
     </div>
 
     <div class="row" style="transform: none;">
 
-        <!-- Teacher Information -->
+        <!-- Informations sur le professeur -->
         <div class="col-xxl-3 col-xl-4 theiaStickySidebar teacher-link" data-id="<%= teacherInfo.id %>" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
 
             <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
@@ -37,61 +26,61 @@
                                 <img src="../assets/img/teachers/teacher-01.jpg"  class="img-fluid" alt="img">
                             </div>                                              
                             <div class="overflow-hidden">
-                                <span class="badge badge-soft-success d-inline-flex align-items-center mb-1"><i class="ti ti-circle-filled fs-5 me-1"></i><%= teacherInfo.is_active ? 'Active' : 'Inactive' %></span>
+                                <span class="badge badge-soft-success d-inline-flex align-items-center mb-1"><i class="ti ti-circle-filled fs-5 me-1"></i><%= teacherInfo.is_active ? 'Actif' : 'Inactif' %></span>
                                 <h5 class="mb-1 text-truncate"><%= teacherInfo.nom + " "  + teacherInfo.prenom %></h5>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Basic Information -->
+                    <!-- Informations de base -->
                     <div class="card-body">
-                        <h5 class="mb-3">Basic Information</h5>
+                        <h5 class="mb-3">Informations de base</h5>
                         <dl class="row mb-0"> 
-                            <dt class="col-6 fw-medium text-dark mb-3">Gender</dt> 
+                            <dt class="col-6 fw-medium text-dark mb-3">Sexe</dt> 
                             <dd class="col-6 mb-3"><%= teacherInfo.gender %></dd> 
-                            <dt class="col-6 fw-medium text-dark mb-3">Date Of Birth</dt> 
+                            <dt class="col-6 fw-medium text-dark mb-3">Date de naissance</dt> 
                             <dd class="col-6 mb-3"><%= teacherInfo.date_naissance %></dd>
                         </dl>
                     </div>
-                    <!-- /Basic Information -->
+                    <!-- /Informations de base -->
 
                 </div>
                 <div class="card border-white">
                     <div class="card-body">
-                        <h5 class="mb-3">Primary Contact Info</h5>
+                        <h5 class="mb-3">Coordonnées principales</h5>
                         <div class="d-flex align-items-center mb-3">
                             <span class="avatar avatar-md bg-light-300 rounded me-2 flex-shrink-0 text-default"><i class="ti ti-phone"></i></span>
                             <div>
-                                <span class="text-dark fw-medium mb-1">Phone Number</span>
+                                <span class="text-dark fw-medium mb-1">Numéro de téléphone</span>
                                 <p><%= teacherInfo.telephone %></p>
                             </div>
                         </div>
                         <div class="d-flex align-items-center">
                             <span class="avatar avatar-md bg-light-300 rounded me-2 flex-shrink-0 text-default"><i class="ti ti-mail"></i></span>
                             <div>
-                                <span class="text-dark fw-medium mb-1">Email Address</span>
+                                <span class="text-dark fw-medium mb-1">Adresse email</span>
                                 <p><%= teacherInfo.email %></p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="resize-sensor" style="position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden;"><div class="resize-sensor-expand" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;"><div style="position: absolute; left: 0px; top: 0px; transition: all; width: 533px; height: 1234px;"></div></div><div class="resize-sensor-shrink" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;"><div style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%"></div></div></div></div></div>
-        <!-- /Teacher Information -->
+        <!-- /Informations sur le professeur -->
 
         <div class="col-xxl-9 col-xl-8">
             <div class="row">
                 <div class="col-md-12">
 
-                    <!-- List -->
+                    <!-- Liste -->
                     <ul class="nav nav-tabs nav-tabs-bottom mb-4">
                         <li>
-                            <a href="teacher-details" class="nav-link <%= teacher_page_path === 'teacher-details-tab' ? 'active' : '' %>"><i class="ti ti-school me-2"></i>Teacher Details</a>
+                            <a href="teacher-details" class="nav-link <%= teacher_page_path === 'teacher-details-tab' ? 'active' : '' %>"><i class="ti ti-school me-2"></i>Détails du professeur</a>
                         </li>
                         <li>
-                            <a href="teacher-time-table" class="nav-link <%= teacher_page_path === 'teacher-time-table-tab' ? 'active' : '' %>"><i class="ti ti-table-options me-2"></i>Time Table</a>
+                            <a href="teacher-time-table" class="nav-link <%= teacher_page_path === 'teacher-time-table-tab' ? 'active' : '' %>"><i class="ti ti-table-options me-2"></i>Emploi du temps</a>
                         </li>
                     </ul>
-                    <!-- /List -->
+                    <!-- /Liste -->
 
                     <%- include('./' + teacher_page_path) %>
             </div>
@@ -109,7 +98,7 @@
 
     tabs.forEach(tab => {
         tab.addEventListener("click", function (event) {
-            event.preventDefault(); // Prevent default link navigation
+            event.preventDefault(); // Empêche la navigation par défaut du lien
 
             const baseUrl = this.getAttribute("href");
 

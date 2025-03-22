@@ -1,5 +1,6 @@
 const bcrypt = require('bcryptjs');
 const User = require('../models/userModel');
+const stdCtr = require('../controllers/studentController');
 
 class AuthController {
     // Render the login page (static method)
@@ -20,7 +21,7 @@ class AuthController {
     //     const { email, password } = req.body;
     //     try {
     //         const hashedPassword = await bcrypt.hash(password, 10); // Hash the password
-    //         await User.createUser(email, hashedPassword); // Create the user in the database
+    //         await User.createUser(email, hashedPassword);
     //         res.redirect('auth/login');
     //     } catch (error) {
     //         console.error(error);
@@ -35,7 +36,12 @@ class AuthController {
             const user = await User.findByEmail(email); // Find the user by email
             if (user && await bcrypt.compare(password, user.hashed_password)) { // Compare passwords
                 req.session.userId = user.id; // Set the session
-                res.redirect('admin/dashboard');
+                if (user.role === 0) {
+                    res.redirect('admin/dashboard');
+                }
+                else {
+                    res.redirect('student/dashboard');
+                }
             } else {
                 res.redirect('/login');
             }
@@ -45,12 +51,17 @@ class AuthController {
         }
     }
 
-    // Handle user logout (static method)
-    static logout(req, res) {
-        req.session.destroy(() => {
-            res.redirect('auth/login');
+    static async logout(req, res) {
+        req.session.destroy(err => {
+          if (err) {
+            return res.redirect('/');
+          }
+          
+          res.clearCookie('connect.sid');
+          res.redirect('/login');
         });
-    }
+      };
+      
 }
 
 module.exports = AuthController; // Export the class itself (no instance needed)

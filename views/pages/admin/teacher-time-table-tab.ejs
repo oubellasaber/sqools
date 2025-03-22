@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header d-flex align-items-center justify-content-between flex-wrap pb-0">
-        <h4 class="mb-3">Time Table</h4>
+        <h4 class="mb-3">Emploi du Temps</h4>
     </div>
     <div class="card-body">
         <div class="d-flex flex-nowrap overflow-auto">
@@ -20,8 +20,8 @@
                                 <%= session.room %>
                             </span>
                         </div>
-                        <p class="text-dark d-block py-2 m-0">Class: <%= session.class %>, <%= session.section %></p>
-                        <p class="text-dark d-block pb-2 m-0">Subject: <%= session.subject %></p>
+                        <p class="text-dark d-block py-2 m-0">Classe: <%= session.class %>, <%= session.section %></p>
+                        <p class="text-dark d-block pb-2 m-0">Matière: <%= session.subject %></p>
                         <p class="text-dark d-block pb-2 m-0">Type: <%= session.type %></p>
                         <p class="text-dark text-nowrap m-0">
                             <i class="ti ti-clock me-1"></i><%= session.time %>
@@ -31,7 +31,7 @@
                 <% } else { %>
                     <div class="rounded p-3 mb-4 border text-center bg-light">
                         <div class="py-3">
-                            <h6 class="text-muted">No Classes Scheduled</h6>
+                            <h6 class="text-muted">Aucun cours prévu</h6>
                         </div>
                     </div>
                 <% } %>

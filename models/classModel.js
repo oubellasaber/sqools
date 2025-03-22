@@ -3,13 +3,11 @@ const db = require('../config/db');
 class Class {
     static async getAll(limit, offset) {
     try {
-        // Validate limit with allowed values
         const allowedRowsPerPage = [5, 10, 15, 20];
         if (!allowedRowsPerPage.includes(limit)) {
             limit = allowedRowsPerPage[0];
         }
 
-        // SQL query to fetch classes with pagination
         const query = `
             SELECT 
                 c.id, 
@@ -22,10 +20,8 @@ class Class {
             LIMIT ? OFFSET ?;
         `;
 
-        // Execute the query
         const [rows] = await db.query(query, [limit, offset]);
 
-        // Return the paginated classes
         return rows;
     } catch (error) {
         console.error('Error fetching classes:', error);
